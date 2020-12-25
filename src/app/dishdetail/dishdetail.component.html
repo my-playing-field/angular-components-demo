@@ -23,7 +23,18 @@
       </mat-card>
   </div>
 
-  <div fxFlex="40">
-    <p>Comments</p>
+  <div fxFlex="40" fxLayout="column" >
+    <h2>Comments</h2>
+    <mat-list *ngIf="dish" fxLayout="column" fxLayoutGap="40px" >
+      <ng-container *ngFor="let comment of dish.comments">
+        <mat-list-item >
+          <ul style="list-style-type: none;">
+            <li>{{comment.comment}}</li>
+            <li>{{comment.rating}} Stars</li>
+            <li>-- {{comment.author}} {{comment.date|date}}</li>
+          </ul>
+        </mat-list-item>
+      </ng-container>
+    </mat-list>
   </div>
 </div>
